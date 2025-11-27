@@ -1,2 +1,2 @@
 #!/bin/bash
-for a in {a..z}{a..z};do [ $a != oo ]&&echo $a;done
+printf "%s\n" {a..z}{a..z}|grep -v '^oo$'
