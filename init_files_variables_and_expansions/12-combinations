@@ -1,0 +1,2 @@
+#!/bin/bash
+for a in {a..z}{a..z};do [ $a != oo ]&&echo $a;done
