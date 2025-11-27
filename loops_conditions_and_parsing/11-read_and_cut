@@ -1,7 +1,7 @@
 #!/usr/bin/env bash
 # Display username:uid:home_directory from /etc/passwd
 
-while IFS=":" read -r user pass uid gid info home shell
+while IFS=":" read -r user _ uid _ _ home _
 do
-  echo "$user:$uid:$home"
+  printf '%s:%s:%s\n' "$user" "$uid" "$home"
 done < /etc/passwd
