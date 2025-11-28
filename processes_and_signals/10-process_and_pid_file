@@ -1,5 +1,5 @@
 #!/usr/bin/env bash
-# Script that writes its PID to /var/run/myscript.pid and handles signals
+# Manage PID file and react to signals
 
 PIDFILE="/var/run/myscript.pid"
 
