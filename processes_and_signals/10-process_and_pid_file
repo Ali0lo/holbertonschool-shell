@@ -3,8 +3,8 @@
 
 PIDFILE="/var/run/myscript.pid"
 
-# Write our PID to the file
-echo $$ > "$PIDFILE"
+# Write our PID to the file (try with sudo if needed, or just attempt)
+echo $$ > "$PIDFILE" 2>/dev/null || echo $$ > "$PIDFILE"
 
 # Handle signals
 trap 'echo "Y U no love me?!"' INT
