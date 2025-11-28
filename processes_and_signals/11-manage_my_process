@@ -8,26 +8,25 @@ DAEMON="$SCRIPT_DIR/manage_my_process"
 start_process() {
   "$DAEMON" &
   echo "$!" > "$PIDFILE"
-  echo "manage_my_process started"
 }
 
 stop_process() {
   if [ -f "$PIDFILE" ]; then
     PID="$(cat "$PIDFILE")"
-    if kill "$PID" 2>/dev/null; then
-      :
-    fi
+    # Try to kill, ignore errors
+    kill "$PID" 2>/dev/null || true
     rm -f "$PIDFILE"
   fi
-  echo "manage_my_process stopped"
 }
 
 case "$1" in
   start)
     start_process
+    echo "manage_my_process started"
     ;;
   stop)
     stop_process
+    echo "manage_my_process stopped"
     ;;
   restart)
     stop_process
