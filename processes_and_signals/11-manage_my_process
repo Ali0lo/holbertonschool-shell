@@ -1,9 +1,8 @@
 #!/usr/bin/env bash
-# Init-style script to manage the manage_my_process daemon
+# Init-style script to manage manage_my_process
 
 PIDFILE="/var/run/my_process.pid"
-SCRIPT_DIR="$(dirname "$0")"
-DAEMON="$SCRIPT_DIR/manage_my_process"
+DAEMON="$(dirname "$0")/manage_my_process"
 
 start_process() {
   "$DAEMON" &
@@ -13,7 +12,6 @@ start_process() {
 stop_process() {
   if [ -f "$PIDFILE" ]; then
     PID="$(cat "$PIDFILE")"
-    # Try to kill, ignore errors
     kill "$PID" 2>/dev/null || true
     rm -f "$PIDFILE"
   fi
